@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
+
+<div class="row title">
+    <div class ="col">
+        Create a User Name
+    </div>
+</div>
+
+<div class="row add-info">
+    <div class ="col">
+        First Name: <input id = "first-name" data-type = "first-name" placeholder="put a first name">
+    </div>
+</div>
+
+<div class="row add-info">
+    <div class ="col">
+       Last Name: <input id = "last-name" data-type = "last-name" placeholder="put a last name">
+    </div>
+</div>
+
+<div class="row button">
+    <div class ="col">
+       <button class = "submit-btn">Submit</button>
+    </div>
+</div>
+
+<div class="row response-div">
+    <div class ="col" id = "create-response">
+    </div>
+</div>
+
+{% endblock %}

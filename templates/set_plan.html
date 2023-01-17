@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'set_plan.js') }}"></script>
+
+<div class="row set_my_plan_div">
+    <div class ="col section-bg">
+        <div class = "title"> Set My Plan</div>
+        <div class = "content">
+            Apply <input type = "number" id = "target_num_input" min = "0"> jobs 
+            before <input type = "date" id = "deadline_input">
+            <button id = "submit_plan_btn"> Set Plan </button>
+        </div>
+        <div id = "set_plan_alert_div"></div>
+    </div>
+</div>
+
+
+{% endblock %}

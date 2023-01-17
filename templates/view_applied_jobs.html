@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'view_applied_jobs.js') }}"></script>
+<script>
+    let all_jobs = {{all_jobs|tojson}}
+</script>
+
+<div class="row view_jobs_div">
+    <div class ="col section-bg">
+        <div class = "row">
+            <div class = "col-3 title">Applied Jobs</div>
+            <div class = "col-5"></div>
+            <div class = "col-3 add_btn_div_in_view">
+                <button id= "add_btn_in_view">+</button>
+            </div>
+        </div>
+        <div class = "content_jobs"></div>
+    </div>
+</div>
+
+{% endblock %}

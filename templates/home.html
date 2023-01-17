@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
+
+<div class="row my_plan_div">
+    <div class ="col section-bg">
+        <div class = "title"> My Plan</div>
+        {%if plan.target_num and plan.deadline %}
+        <div class = "content"> Apply  <span class = "plan_content">{{plan.target_num}}</span>  jobs from <span class = "plan_content">{{plan.start_date}}</span> to <span class = "plan_content">{{plan.deadline}}.</span>   <a class = "set_plan_nav_link" href = "/set_plan">Edit Plan</a></div>
+        {% else %}
+        <div class = "content"> You haven't set any plan yet. <a class = "set_plan_nav_link" href = "/set_plan">Go to Set Plan</a></div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row my_progress_div">
+    <div class ="col section-bg">
+        <div class = "title"> My Progress</div>
+        {%if plan.target_num and plan.deadline %}
+        <div class="progress progress_div" style="height: 40px;">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{(applied_job_num.total_applied_job/plan.target_num)*100}}%" aria-valuenow="{{(applied_job_num.total_applied_job/plan.target_num)*100}}" aria-valuemin="0" aria-valuemax="100">{{(applied_job_num.total_applied_job/plan.target_num)*100}}%</div>
+        </div>
+        <div class = "row progress_text_div">
+            <div class = "col-3" id = "count_down_div"><span id = "count_down_text">{{days_left_data.days_left}}</span> Days Left</div>
+            <div class = "col-6"></div>
+            <div class= "col-3" id="progress_record_content_div">{{applied_job_num.total_applied_job}} / {{plan.target_num}}</div>
+        </div>
+        {% else %}
+        <div class = "content"> You haven't set any plan yet. <a class = "set_plan_nav_link" href = "/set_plan">Go to Set Plan</a></div>
+        {% endif %}
+        
+    </div>
+</div>
+
+<div class="row my_daily_activity_div">
+    <div class ="col section-bg">
+        <div class = "title"> My Daily Activity</div>
+        {%if plan.target_num and plan.deadline %}
+        <div class = "row daily_task_content_div">
+            <div class="col-5" id = "target_daily_task_div">
+                To Complete Estimated Daily Task: 
+                <br><br>
+                <span id = "target_daily_task_content">{{daily_task_data.target_daily_activity}}</span> Jobs Needed to Apply
+            </div>
+            <div class="col-1"></div>
+            <div class ="col-5" id = "today_activity_div" >
+                You Have Applied
+                <br><br>
+                <span id = "today_activity_content">{{daily_task_data.daily_applied_job_num}}</span> Jobs Today
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class = "row" id = "add_new_job_btn_div">
+            <div class = "col-9"></div>
+            <button class = "col-3" id = "add_new_job_btn"> Add A New Job Application</button>
+        </div>
+        {% else %}
+        <div class = "content"> You haven't set any plan yet. <a class = "set_plan_nav_link" href = "/set_plan">Go to Set Plan</a></div>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

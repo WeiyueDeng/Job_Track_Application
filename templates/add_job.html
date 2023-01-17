@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'add_job.js') }}"></script>
+
+
+
+<div class="row add_job_div">
+    <div class ="col section-bg">
+        <div class = "title"> Add A New Job</div>
+        <div class = "content">
+            <div class = "row">
+                <div class = "col-2">Position: </div>
+                <div class = "col-10"><input id = "position_input"></div>
+            </div>
+            <div class ="row">
+                <div class = "col-2">Company:</div>
+                <div class = "col-10"><input id = "company_input"></div>
+            </div>
+            <div class ="row">
+                <div class = "col-2">URL: </div>
+                <div class = "col-10"><input id = "URL_input"></div>
+            </div>
+            <div class ="row">
+                <div class = "col-2">Status: </div>
+                <div class = "col-10">
+                    <div>
+                        <input type="radio" id="applied" name="status" value="Applied">
+                        <label for="applied">Applied</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="OA" name="status" value="Online_Assessment">
+                        <label for="OA">Online Assessment</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="interviewing" name="status" value="Interviewing">
+                        <label for="interviewing">Interviewing</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="recieved_offer" name="status" value="Recieved_Offer">
+                        <label for="recieved_offer">Recieved Offer</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="not_selected" name="status" value="Not_Selected">
+                        <label for="not_selected">Not Selected</label>
+                    </div>
+                </div>
+            </div>
+            <div class ="row">
+                <div class = "col-2">Location: </div>
+                <div class = "col-10"><input id = "location_input"></div>
+            </div>
+            <div class ="row">
+                <div class = "col-2">Applied Date: </div>
+                <div class = "col-10"><input type="date" id = "applied_date_input"></div>
+            </div>
+            <div class ="row note_input_div">
+                <div class = "col-2">Note: </div>
+                <div class = "col-10"><textarea id = "note_input"></textarea></div>
+            </div>
+            <div class = "row save_job_btn_div">
+                <div class = "col-9"></div>
+                <div class = "col-3">
+                    <button id = "save_job_btn"> Add </button>
+                </div>
+            </div>
+        </div>
+        <div id = "add_job_alert_div"></div>
+    </div>
+</div>
+
+{% endblock %}

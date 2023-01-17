@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'update.js') }}"></script>
+<script>
+    let data = {{data|tojson}} 
+    console.log(data)
+</script>
+<div class="row title">
+    <div class ="col">
+        Update Any Users' Information
+    </div>
+</div>
+
+<div class="row users-info-div">
+    <div class ="col" id= "user-info-content">
+    </div>
+</div>
+
+{% endblock %}
